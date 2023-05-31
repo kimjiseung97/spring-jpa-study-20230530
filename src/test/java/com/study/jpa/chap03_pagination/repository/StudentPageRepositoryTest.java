@@ -81,7 +81,7 @@ class StudentPageRepositoryTest {
         //given
         int pageNo = 1;
         int size = 10;
-        Pageable pageInfo = PageRequest.of(pageNo -1 , size);
+        Pageable pageInfo = PageRequest.of(pageNo-1 , size);
 
         //when
         Page<Student> students = studentPageRepository.findByNameContaining("3", pageInfo);
