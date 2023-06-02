@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @Table(name = "tbl_product")
 public class Product {
 
-    @Id
+    @Id //pk 설정
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment
     @Column(name = "prod_id")
     private long id;

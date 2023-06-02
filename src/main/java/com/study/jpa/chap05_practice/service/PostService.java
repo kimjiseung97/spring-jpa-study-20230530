@@ -67,10 +67,11 @@ public class PostService {
             hashTags.forEach(ht->{
                 hashTagRepository.save(HashTag.builder().tagName(ht).post(save).build()
                 );
+
+                save.addHashTag((HashTag) hashTags);
             });
 
         }
-        save.addHashTag((HashTag) hashTags);
         return new PostDetailResponseDTO(save);
     }
 }

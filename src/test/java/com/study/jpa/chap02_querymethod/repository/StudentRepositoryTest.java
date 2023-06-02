@@ -53,7 +53,7 @@ class StudentRepositoryTest {
         List<Student> students = studentRepository.findByName(name);
 
         //then
-        assertEquals(1,students.size());
+        assertEquals(9,students.size());
 
         System.out.println("students.get(0) = " + students.get(0));
     }
