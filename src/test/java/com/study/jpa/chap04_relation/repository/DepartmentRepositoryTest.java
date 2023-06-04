@@ -34,6 +34,7 @@ class DepartmentRepositoryTest {
         //then
         System.out.println("\n\n\n");
         System.out.println("department = " + department.getEmployees());
+        System.out.println("department = " + department);
         System.out.println("\n\n\n");
 
     }
@@ -59,7 +60,7 @@ class DepartmentRepositoryTest {
         //given
         Employee foundEmp = employeeRepository.findById(3L).orElseThrow();
 
-        Department department = departmentRepository.findById(1L).orElseThrow();
+        Department department = departmentRepository.findById(2L).orElseThrow();
 
         foundEmp.setDepartment(department);
         employeeRepository.save(foundEmp);

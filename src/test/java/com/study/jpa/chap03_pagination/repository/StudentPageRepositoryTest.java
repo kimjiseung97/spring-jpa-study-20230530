@@ -20,22 +20,22 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 // 만약에 서비스클래스를 사용한다면 해당 클래스에 붙일 것!
 @Transactional// JPA는 I, U ,D 시에 반드시 트랜잭션 처리가 필수
-@Rollback(value = false)
+@Rollback(value = true)
 class StudentPageRepositoryTest {
 
     @Autowired
     StudentPageRepository studentPageRepository;
-    @BeforeEach
-    void bulkInsert(){
-        //학생을 147명 저장
-        for (int i = 1; i <=147 ; i++) {
-            Student s = Student.builder()
-                    .name("김파파" + i).city("도시" + i).major("전공" + i).build();
-
-            studentPageRepository.save(s);
-
-        }
-    }
+//    @BeforeEach
+//    void bulkInsert(){
+//        //학생을 147명 저장
+//        for (int i = 1; i <=147 ; i++) {
+//            Student s = Student.builder()
+//                    .name("김파파" + i).city("도시" + i).major("전공" + i).build();
+//
+//            studentPageRepository.save(s);
+//
+//        }
+//    }
 
     @Test
     @DisplayName("기본 페이징 테스트")
@@ -58,6 +58,12 @@ class StudentPageRepositoryTest {
         //총 페이지 수
         int totalPages = foundStudents.getTotalPages();
 
+        //총 학생수
+        long totalElements = foundStudents.getTotalElements();
+
+        boolean unpaged = foundStudents.getPageable().isUnpaged();
+        boolean paged = foundStudents.getPageable().isPaged();
+
         //이전페이지 이동가능 여부
         Pageable prev = foundStudents.getPageable().previousOrFirst();
         Pageable next = foundStudents.getPageable().next();
@@ -69,7 +75,10 @@ class StudentPageRepositoryTest {
         System.out.println("\n\n\n");
         students.forEach(System.out::println);
         System.out.println("\n\n\n");
-        System.out.println(totalPages);
+        System.out.println("totalElements = " + totalElements);
+        System.out.println("unpaged = " + unpaged);
+        System.out.println("paged = " + paged);
+        System.out.println("totalPages = "+totalPages);
         System.out.println("next = " + next);
         System.out.println("\n\n\n");
         System.out.println("prev = " +prev);
