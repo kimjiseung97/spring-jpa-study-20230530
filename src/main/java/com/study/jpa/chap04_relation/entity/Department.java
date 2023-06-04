@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
+@EqualsAndHashCode(of = "id")
 @Builder
 @Entity
 @ToString(exclude = {"employees"})
@@ -31,6 +31,5 @@ public class Department {
     // mappedBy에는 상대방 엔터티의 조인되는 필드명을 써줌
     @OneToMany(mappedBy = "department") //부서는 하나고 사원은 여러명
     private List<Employee> employees = new ArrayList<>();
-
 
 }

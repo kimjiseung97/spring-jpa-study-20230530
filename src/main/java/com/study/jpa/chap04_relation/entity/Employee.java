@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode
+@EqualsAndHashCode(of = "id")
 @Builder
 @Entity
 // jpa 연관관계 매핑에서는 연관관계 데이터는 ToString에서 제외해야 한다.
