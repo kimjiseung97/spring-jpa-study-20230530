@@ -36,7 +36,7 @@ public class Post {
 
     @CreationTimestamp
     @Column(updatable = false)
-    private LocalDateTime createDate; //작성시ㅏㄴ
+    private LocalDateTime createDate; //작성시간
 
     @UpdateTimestamp
     private LocalDateTime updateDate; //수정시간

@@ -70,10 +70,10 @@ public class PostService {
         List<String> hashTags = dto.getHashTags();
         if(hashTags!=null && hashTags.size()>0){
             hashTags.forEach(ht->{
-                hashTagRepository.save(HashTag.builder().tagName(ht).post(save).build()
+                HashTag saved = hashTagRepository.save(HashTag.builder().tagName(ht).post(save).build()
                 );
 
-                save.addHashTag((HashTag) hashTags);
+                save.addHashTag(saved);
             });
 
         }

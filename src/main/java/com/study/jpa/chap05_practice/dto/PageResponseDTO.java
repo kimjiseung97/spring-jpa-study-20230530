@@ -20,8 +20,6 @@ public class PageResponseDTO<T> {
 
     private boolean next;
 
-    private int tot1alCount;
-
     private static final int PAGE_COUNT = 10;
     private final int totalCount;
 
