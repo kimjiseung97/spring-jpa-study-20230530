@@ -34,7 +34,7 @@ public class Ship {
     @Column(name = "ship_like_count", nullable = false)
     private int shipLikeCount;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 

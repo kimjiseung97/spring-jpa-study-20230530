@@ -3,8 +3,10 @@ package com.study.jpa.projectclasses.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Setter
 @Getter
@@ -30,7 +32,7 @@ public class User {
 
     @JsonFormat(pattern="yyyy-MM-dd")
     @Column(name = "user_birth", nullable = false)
-    private Date userBirth;
+    private LocalDate userBirth;
 
     @Column(name = "user_name", nullable = false)
     private String userName;
@@ -44,10 +46,10 @@ public class User {
     @Column(name = "user_full_address", nullable = false)
     private String userFullAddress;
 
-    @Column(name = "user_grade", nullable = false, columnDefinition = "varchar(20) default 'user'")
+    @Column(name = "user_grade", nullable = false, columnDefinition = "varchar(20) default 'user'", insertable = false)
     private String userGrade;
 
-    @Column(name = "user_point", nullable = false)
+    @Column(name = "user_point", nullable = true)
     private int userPoint;
 
     @Column(name = "user_image")

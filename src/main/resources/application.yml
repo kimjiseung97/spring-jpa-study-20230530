@@ -27,3 +27,7 @@ logging.level:
 springdoc:
   swagger-ui:
     path: /myapi.html
+
+file:
+  upload:
+    root-path: file.upload.root-path =D:/jpa/upload/
